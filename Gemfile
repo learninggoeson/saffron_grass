@@ -13,7 +13,7 @@ gem 'paperclip', '3.5.4'
 gem 'paperclip-compression', '0.3.7'
 gem "rmagick"
 gem "jquery-rails"
-
+gem 'puma'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
