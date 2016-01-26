@@ -1,0 +1,44 @@
+<div class="banner">
+	<div class= "container">
+		<div class="row">
+			<div class="promotitle">Let's Promote Real Life Heroes Now !</div>	
+		</div>
+	</div>
+</div>
+<div id="logo" >
+	<%#= image_tag("logo.png" ) %>
+	<div id ="company-name">
+	<%= @page_title || "Saffron Grass" %></div>
+	<div id ="sub-title">
+	<%= @sub_title || "Let's Sing For The Unsung" %>
+	</div>
+</div>
+
+<div id = "top-menu">
+<%= link_to "HOME", "/" %>
+<%= link_to "SHOP", products_path %>
+<%= link_to "OUR STORY", about_path %>
+<%= link_to "CONTACT US", new_contact_path %>
+
+</div>
+<% if user_signed_in? %>
+  Signed in as <%= current_user.email %>. Not you?
+  <%= link_to "Edit profile", edit_user_registration_path %>
+  <%= link_to 'Logout' , logout_path, :method => :delete %>
+
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+<% end %>
+
+<%# flash.each do |name, msg| %>
+  <%#= content_tag :div, msg, id: "flash_#{name}" %>
+<%# end %>
+
+<% if user_signed_in? %>
+	<br />
+	<%= link_to 'Orders' , orders_path	%><br />
+	<%= link_to 'Products' , products_path %><br />
+	<%= link_to 'Users' , users_path %><br />
+	<br />
+<% end %>
+

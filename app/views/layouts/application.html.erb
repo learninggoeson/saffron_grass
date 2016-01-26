@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Saffrongrass</title>
+  <%#= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript">
+	  window.currency = {"symbol":"₹","symbol_position":"before","decimal_mark":".","thousands_separator":","} || {};
+  </script>
+</head>
+<body id = "store">
+	
+	<%=render :partial => 'shared/header'%>
+	<%= yield %>
+	<%= render :partial => 'shared/footer'%>
+</body>
+</html>

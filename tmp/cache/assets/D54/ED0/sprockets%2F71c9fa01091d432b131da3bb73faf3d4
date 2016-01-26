@@ -1,0 +1,154 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1453018968.563691:@value{	I"length:EFiÉI"digest;
+F"%d49b36198bf13e0e11903ee7a2487b80I"source;
+FI"É/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+*/
+
+.banner {
+	background: none repeat scroll 0 0 #eba737;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 300;
+    padding: 5px 0;
+    text-align: left;
+    box-sizing: border-box;
+}
+html body, html, body {
+    font-family: "Lato",san-serif;
+    font-weight: 300;
+}
+body {
+	 color: #666666;
+    font-family: Lato,sans-serif;
+    font-size: 15px;
+    line-height: 1.42857;
+}
+.col-sm-3 {
+    width: 25%;
+}
+.col-sm-3 {
+	min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+}
+.page-home .footer {
+    margin-top: 20px;
+}
+.footer {
+	background: none repeat scroll 0 0 #d9d9d9;
+    color: #737373;
+    margin-top: 63px;
+    padding: 10.5px 0 15.75px;
+}
+
+.footer-extra {
+	/*background: none repeat scroll 0 0 #707070;
+    color: #d9d9d9;
+    font-weight: 300;
+    padding: 10.5px 0;*/
+}
+
+/*add to cart button css */
+#store .entry form, #store .entry form div {
+display: inline;
+}
+
+/* Styles for the cart in the main page */
+#store .cart_title {
+font: 120% bold;
+}
+#store .item_price, #store .total_line {
+text-align: right;
+}
+#store .total_line .total_cell {
+font-weight: bold;
+border-top: 1px solid #595;
+}
+
+/* line 1, ../../app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, ../../app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, ../../app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, ../../app/assets/stylesheets/scaffolds.css.scss */
+a {
+  color: #000;
+}
+/* line 24, ../../app/assets/stylesheets/scaffolds.css.scss */
+a:visited {
+  color: #666;
+}
+/* line 28, ../../app/assets/stylesheets/scaffolds.css.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, ../../app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 40, ../../app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 44, ../../app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, ../../app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 58, ../../app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 69, ../../app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+;
+FI"_version;
+F"%4b7267a9d23428fddfa72aa8549f3c9a

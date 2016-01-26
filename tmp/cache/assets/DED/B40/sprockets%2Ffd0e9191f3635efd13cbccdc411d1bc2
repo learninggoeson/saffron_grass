@@ -1,0 +1,17 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1452096258.6814218:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%225cb7af069b429c790138acf6ac582bI"logical_path;
+FI"jquery.min.map;
+TI"pathname;
+FI"l/home/shruti/.rvm/gems/ruby-1.9.3-p551/gems/jquery-rails-3.1.4/vendor/assets/javascripts/jquery.min.map;
+TI"content_type;
+FI"application/octet-stream;
+FI"
+mtime;
+FI"2016-01-05T22:03:58+05:30;
+FI"length;
+FI"141666;
+FI"digest;
+F"%a42db5a66aa3455edb0d477e7f795bc7I"_version;
+F"%d3399da1890ef54eecbcf24324b9c72a
