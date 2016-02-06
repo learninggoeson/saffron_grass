@@ -1,5 +1,6 @@
 Saffrongrass::Application.routes.draw do
 
+  
   resources :role_users
 
   resources :roles
@@ -10,30 +11,35 @@ Saffrongrass::Application.routes.draw do
 
   get 'admin' => 'admin#index'
 
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
+  # controller :sessions do
+  #   get 'login' => :new
+  #   post 'login' => :create
+  #   delete 'logout' => :destroy
+  # end
 
   # devise_for :user
 
-
-  resources :users
-  devise_for :user do
+  devise_for :users do 
+    get '/user/sign_out' => 'devise/sessions#destroy'
+    delete '/user/sign_out' => 'devise/sessions#destroy'
+  end
+ 
+  devise_for :users do
       match 'signup' => 'users#new', :as => :signup
       match 'register' => 'users#create', :as => :register
       match '/login' => 'sessions#new', :as => :login 
       match 'logout' => 'sessions#destroy', :as => :logout
   end
 
+  # devise_for :users
+  resources :users
   resources :orders
 
   resources :line_items
 
   resources :carts
 
-  get "store/index"
+  # get "store/index"
 
   resources :products do
     get :who_bought, :on => :member
@@ -89,7 +95,8 @@ Saffrongrass::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'store#index' , :as => 'store'
+  # root :to => 'store#index' , :as => 'store'
+  root :to => 'store#index'
 
 
   # See how all your routes lay out with "rake routes"

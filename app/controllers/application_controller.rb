@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   	# before_filter :authorize
-  	before_filter :authenticate_user!
-  	skip_before_filter :verify_authenticity_token
+  	# before_filter :authenticate_user!
+  	# skip_before_filter :verify_authenticity_token
   	protect_from_forgery
 
 	def has_role?(current_user, role)
