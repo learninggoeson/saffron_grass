@@ -21,5 +21,8 @@ class Product < ActiveRecord::Base
 		end
 	end
 
+	def poster
+		# "http://ia.media-imdb.com/images/M/#{poster_url}"
+	end
 
 end

@@ -5,40 +5,60 @@
 		</div>
 	</div>
 </div>
-<div id="logo" >
-	<%#= image_tag("logo.png" ) %>
-	<div id ="company-name">
-	<%= @page_title || "Saffron Grass" %></div>
-	<div id ="sub-title">
-	<%= @sub_title || "Let's Sing For The Unsung" %>
-	</div>
+
+
+
+
+<div class="row">
+  <nav class="top-bar column" data-topbar>
+
+      <p class="title-area">
+        <p class="name">
+          <h1>
+          	<%= link_to @page_title || "Saffron Grass", root_path %>
+          </h1>
+        </p>
+        <div id ="sub-title">
+			<%= @sub_title || "Let's Sing For The Unsung" %>
+		</div>
+        <!-- <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li> -->
+      </p>
+
+	    <section class="top-bar-section">
+
+			<div class="top-bar">
+				<div class="top-bar-left">
+					<ul class="menu">
+						<!-- <li class="menu-text">Marketing Site</li> -->
+						<li><%= link_to "HOME", "/" %></li>
+						<li><%= link_to "SHOP", products_path %></li>
+						<li><%= link_to "OUR STORY", about_path %></li>
+						<li><%= link_to "CONTACT US", new_contact_path %></li>
+					</ul>
+				</div>
+				<div class="top-bar-right">
+				<ul class="menu">
+				<% if user_signed_in? %>
+				Signed in as <%= current_user.email %>. Not you?
+				<li><%= link_to "Edit profile", edit_user_registration_path %></li>
+				<li><%= link_to 'Logout' , destroy_user_session_path, :method => :delete %></li>
+
+				<% else %>
+					 <li><%= link_to "sign in", new_user_session_path %></li>
+				<% end %>
+				</ul>
+				</div>
+			</div>
+		</section>
+		
+		
+      	<!-- <%# if user_signed_in? %>
+			<br />
+			<%#= link_to 'Orders' , orders_path	%><br />
+			<%#= link_to 'Products' , products_path %><br />
+		    <%#= link_to 'Users' , users_path %><br /> 
+			<br />
+		<%# end %>
+ -->
+    </nav>
 </div>
-
-<div id = "top-menu">
-<%= link_to "HOME", "/" %>
-<%= link_to "SHOP", products_path %>
-<%= link_to "OUR STORY", about_path %>
-<%= link_to "CONTACT US", new_contact_path %>
-
-</div>
-<% if user_signed_in? %>
-  Signed in as <%= current_user.email %>. Not you?
-  <%= link_to "Edit profile", edit_user_registration_path %>
-  <%= link_to 'Logout' , logout_path, :method => :delete %>
-
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-<% end %>
-
-<%# flash.each do |name, msg| %>
-  <%#= content_tag :div, msg, id: "flash_#{name}" %>
-<%# end %>
-
-<% if user_signed_in? %>
-	<br />
-	<%= link_to 'Orders' , orders_path	%><br />
-	<%= link_to 'Products' , products_path %><br />
-	<%= link_to 'Users' , users_path %><br />
-	<br />
-<% end %>
-
