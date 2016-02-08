@@ -1,19 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Saffrongrass</title>
-  <%#= stylesheet_link_tag :all %>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <script type="text/javascript">
-	  window.currency = {"symbol":"₹","symbol_position":"before","decimal_mark":".","thousands_separator":","} || {};
-  </script>
-</head>
-<body id = "store">
-	
-	<%=render :partial => 'shared/header'%>
-	<%= yield %>
-	<%= render :partial => 'shared/footer'%>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Saffron Grass" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
+  </head>
+
+  <body>
+
+    <%= render :partial => "shared/header" %>
+
+    <%= render :partial => "shared/alerts" %>
+
+    <div id="main-content" class="row full-min-height">
+      <%= yield %>
+    </div>
+
+    <footer class="row">
+      <div class="large-12 columns">
+      <hr>
+        <%= render :partial => "shared/footer" %>
+
+         
+      </div>
+    </footer>
+
+    <%= javascript_include_tag "application" %>
+
+  </body>
 </html>

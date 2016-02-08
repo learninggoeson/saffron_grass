@@ -1,16 +1,25 @@
-<% if notice %>
-<p id="notice" ><%= notice %></p>
-<% end %>
 
-<h1>Saffron Grass</h1>
-<% @products.each do |product| %>
-	<div class="entry" >
-		<h3><%= product.name %></h3>
-		<%=sanitize product.description %>
-		<div class="price_line" >
-			<span class="price" ><%= number_to_currency(product.price) %></span>
-			<%= button_to 'Add to Cart' , line_items_path(:product_id => product) %>
-
-		</div>
-	</div>
-<% end %>
+<h4 class="column">Featured Products</h4>
+<div class="column">
+  <ul class="tshirts-grid no-bullet row">
+    <% @products.each do |product| %>
+      <li class="large-3 medium-4 small-12 column">
+        <div class="product-card padly">
+          <%= link_to product, class: "poster" do %>
+          <!-- todo: product.poster - bring image of the product -->
+            <%= image_tag 'tshirt_' + product.id.to_s + '.jpg' %>
+            
+          <% end %>
+          <div class="product-info ell glassy-bg padmy padlx">
+            <div class="title">
+              <h6><%= product.name %> </h6>
+              <%=sanitize product.description %>
+            </div>
+            <p class="left price label product-label radius"><%= number_to_currency(product.price) %></p>
+            <%= button_to 'Add to Cart' , line_items_path(:product_id => product) %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

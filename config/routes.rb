@@ -20,8 +20,8 @@ Saffrongrass::Application.routes.draw do
   # devise_for :user
 
   devise_for :users do 
-    get '/user/sign_out' => 'devise/sessions#destroy'
-    delete '/user/sign_out' => 'devise/sessions#destroy'
+    get '/users/sign_out' => 'devise/sessions#destroy'
+    delete '/users/sign_out' => 'devise/sessions#destroy'
   end
  
   devise_for :users do
