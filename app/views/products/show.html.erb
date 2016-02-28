@@ -1,44 +1,188 @@
 
-<p>
+<!-- <p>
   <b>Name:</b>
-  <%= @product.name %>
+  <%#= @product.name %>
 </p>
 
 <p>
   <b>Price:</b>
-  <%= @product.price %>
+  <%#= @product.price %>
 </p>
 
 <p>
   <b>Sale price:</b>
-  <%= @product.sale_price %>
+  <%#= @product.sale_price %>
 </p>
 
 <p>
   <b>Sku:</b>
-  <%= @product.sku %>
+  <%#= @product.sku %>
 </p>
 
 <p>
   <b>Description:</b>
-  <%= @product.description %>
+  <%#= @product.description %>
 </p>
 
 <p>
   <b>Color:</b>
-  <%= @product.color %>
+  <%#= @product.color %>
 </p>
 
 <p>
   <b>Size:</b>
-  <%= @product.size %>
+  <%#= @product.size %>
 </p>
 
 <p>
   <b>Inventory:</b>
-  <%= @product.inventory %>
+  <%#= @product.inventory %>
 </p>
 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%#= link_to 'Edit', edit_product_path(@product) %> |
+<%#= link_to 'Back', products_path %>
+
+ -->
+
+
+<!-- ================================== -->
+<div class="row">
+<div class="medium-6 columns">
+<%= image_tag 'tshirt_' + @product.id.to_s + '.jpg', :class => "thumbnail"%>
+<div class="row small-up-4">
+<div class="column" style="display:none;">
+<img class="thumbnail" src="http://placehold.it/250x200">
+</div>
+<div class="column" style="display:none;">
+<img class="thumbnail" src="http://placehold.it/250x200">
+</div>
+<div class="column" style="display:none;">
+<img class="thumbnail" src="http://placehold.it/250x200">
+</div>
+<div class="column" style="display:none;">
+<img class="thumbnail" src="http://placehold.it/250x200">
+</div>
+</div>
+</div>
+<div class="medium-6 large-5 columns">
+<h3><%= @product.name %></h3>
+<p><%= @product.description %></p>
+<label>Size
+<select>
+<!-- remove space -->
+<%= sizes = @product.size.split(',') %>
+<%= sizes.each do |size| %>
+  <option value="<%= size %>"><%= size %></option>
+<%end%>
+<!-- <option value="husker">Small</option>
+<option value="starbuck">Medium</option>
+<option value="hotdog">Large</option>
+<option value="apollo">Yeti</option> -->
+</select>
+</label>
+<div class="row">
+<div class="small-3 columns">
+<label for="middle-label" class="middle">Quantity</label>
+</div>
+<div class="small-9 columns quantity">
+<input type="text" id="middle-label" value="1">
+</div>
+</div>
+<%= button_to 'Buy Now' , line_items_path(:product_id => @product), :class => "button large expanded"  %>
+<!-- <div class="small secondary expanded button-group">
+<a class="button">Facebook</a>
+<a class="button">Twitter</a>
+<a class="button">Yo</a>
+</div> -->
+</div>
+</div>
+<div class="column row">
+<hr>
+<ul class="tabs" data-tabs id="example-tabs">
+<li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Reviews</a></li>
+<li class="tabs-title"><a href="#panel2">Similar Products</a></li>
+</ul>
+<div class="tabs-content" data-tabs-content="example-tabs" >
+<div class="tabs-panel is-active" id="panel1" >
+<h4>Reviews</h4>
+<div class="media-object stack-for-small">
+<div class="media-object-section">
+<img class="thumbnail" src="http://placehold.it/200x200">
+</div>
+<div class="media-object-section">
+<h5>Mike Stevenson</h5>
+<p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+</div>
+</div>
+<div class="media-object stack-for-small">
+<div class="media-object-section">
+<img class="thumbnail" src="http://placehold.it/200x200">
+</div>
+<div class="media-object-section">
+<h5>Mike Stevenson</h5>
+<p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
+</div>
+</div>
+<div class="media-object stack-for-small">
+<div class="media-object-section">
+<img class="thumbnail" src="http://placehold.it/200x200">
+</div>
+<div class="media-object-section">
+<h5>Mike Stevenson</h5>
+<p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
+</div>
+</div>
+
+
+<label>
+My Review
+<textarea placeholder="None"></textarea>
+</label>
+<button class="button">Submit Review</button>
+</div>
+<div class="tabs-panel" id="panel2">
+<div class="row medium-up-3 large-up-5">
+<% @similar_products.each do |product| %>
+  <div class="column">
+  <%= image_tag 'tshirt_' + product.id.to_s + '.jpg', :class => "thumbnail"%>
+  <h5><%= product.name %> <small><%= number_to_currency(product.price) %></small></h5>
+  <p><%=sanitize product.description %></p>
+  <a href="#" class="button hollow tiny expanded">Buy Now</a>
+  </div>
+<%end%>
+
+</div>
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>
+      $(document).foundation();
+      $(function() {
+
+          $(".quantity").append('<div class="inc button-inc-dec">+</div><div class="dec button-inc-dec">-</div>');
+
+      });
+      $(".button-inc-dec").on("click", function() {
+
+        var $button = $(this);
+        var oldValue = $button.parent().find("input").val();
+        console.log("shruti " + oldValue);
+        if ($button.text() == "+") {
+          var newVal = parseFloat(oldValue) + 1;
+        } else {
+         // Don't allow decrementing below zero
+          if (oldValue > 0) {
+            var newVal = parseFloat(oldValue) - 1;
+          } else {
+            newVal = 0;
+          }
+        }
+        console.log("shruti ja" + newVal);
+        $button.parent().find("input").val(newVal);
+
+      });
+    </script>

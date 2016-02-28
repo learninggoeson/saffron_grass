@@ -15,7 +15,12 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-
+    category = @product.sku.gsub(/[^a-z ]/i, '')
+    puts "SHRUTI #{category}"
+    
+    @similar_products = Product.find(:all, :conditions=>'id != ' + params[:id] + ' AND sku like "%' + category.to_s + '%"', :limit => 6)
+    puts "#{@similar_products.inspect}"
+    # @similar_products= Product.where('category like "%?%"',category)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
