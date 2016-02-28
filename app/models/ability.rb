@@ -9,18 +9,15 @@ class Ability
      # an admin can do everything
       can :manage, :all
     elsif user.has_role? :customer
-      # an editor can do everything to documents and reports
       can :manage, LineItem
-      # but can only read, create and update charts (ie they cannot
-      # be destroyed or have any other actions from the charts_controller.rb
-      # executed)
       can [:read, :create, :update], Cart
-      # an editor can only view the annual report
+      
       can :read, [Product, About]
       can :create, Contact
       can [:read, :create], Order
 
-    elsif user.has_role? :guest
+    # elsif user.has_role? :guest
+    else
       can :manage, LineItem
       # but can only read, create and update charts (ie they cannot
       # be destroyed or have any other actions from the charts_controller.rb
