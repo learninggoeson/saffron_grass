@@ -4,14 +4,28 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.paginate :page=>params[:page], :order=>'created_at desc' ,
+    if current_user && current_user.is_admin?
+      @orders = Order.paginate :page=>params[:page], :order=>'created_at desc' ,
 :per_page => 10
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @orders }
+      end
+    elsif current_user
+      order = Order.where('email = ?', current_user.email)
+      @orders = order.paginate :page=>params[:page], :order=>'created_at desc' ,
+:per_page => 10
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @orders }
+      end
+    else
+      flash[:notice] = 'Access Denied. Redirected to Home Page...'
+      redirect_to root_url
 
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @orders }
     end
+
+    
   end
 
   # GET /orders/1
@@ -59,7 +73,7 @@ class OrdersController < ApplicationController
         session[:cart_id] = nil
         UserMailer.order_received(@order).deliver
 
-        format.html { redirect_to(store_url, :notice =>'Thank you for your order.' ) }
+        format.html { redirect_to(root_path, :notice =>'Thank you for your order.' ) }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render action: "new" }

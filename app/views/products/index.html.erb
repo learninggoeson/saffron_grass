@@ -11,17 +11,19 @@
     <th>Color</th>
     <th>Size</th>
     <th>Inventory</th>
+    
+    <% if current_user && current_user.is_admin? %>
     <th></th>
     <th></th>
-    <th></th>
+    <th></th><%end%>
   </tr>
 
 <% @products.each do |product| %>
   <tr class=" <%= cycle('list_line_odd' , 'list_line_even' ) %>" 
 >
     <td><%= product.name %></td>
-    <td><%= number_to_currency(product.price) %></td>
-    <td><%= number_to_currency(product.sale_price) %></td>
+    <td><%= number_to_currency(product.price, :unit => "₹") %></td>
+    <td><%= number_to_currency(product.sale_price, :unit => "₹") %></td>
     <td><%= product.sku %></td>
     <td class="list_description" >
         <dl>
@@ -33,6 +35,7 @@
     <td><%= product.color %></td>
     <td><%= product.size %></td>
     <td><%= product.inventory %></td>
+    <% if current_user && current_user.is_admin? %>
     <td class="list_actions" >
         <%= link_to 'Show' , product %><br/>
         <%= link_to 'Edit' , edit_product_path(product) %><br/>
@@ -40,6 +43,7 @@
         :confirm => 'Are you sure?' ,
         :method => :delete %>
     </td>
+    <%end%>
 
   </tr>
 <% end %>
@@ -47,5 +51,7 @@
 </div>
 
 <br />
+<%# if current_user && current_user.is_admin? %>
 
-<%= link_to 'New Product', new_product_path %>
+    <%= link_to 'New Product', new_product_path if can? :create, Product%>
+<%#end%>

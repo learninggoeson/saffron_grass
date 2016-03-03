@@ -8,7 +8,7 @@ gem 'role_model', '0.8.2'
 gem 'mysql2', '0.3.18'
 gem 'cancan', '1.6.10'
 gem 'configatron', '2.13.0'
-gem 'devise', '1.1.3'
+gem 'devise', '2.2.8'
 gem 'paperclip', '3.5.4'
 gem 'paperclip-compression', '0.3.7'
 gem "rmagick"

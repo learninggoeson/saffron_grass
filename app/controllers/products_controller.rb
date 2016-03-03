@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
     
     @similar_products = Product.find(:all, :conditions=>'id != ' + params[:id] + ' AND sku like "%' + category.to_s + '%"', :limit => 6)
     puts "#{@similar_products.inspect}"
-    # @similar_products= Product.where('category like "%?%"',category)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }

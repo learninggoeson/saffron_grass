@@ -5,16 +5,16 @@ class Ability
      # Define abilities for the passed in user here.
     user ||= User.new # guest user (not logged in)
     # a signed-in user can do everything
-    if user.has_role? :admin
+    if user.role == 'admin'
      # an admin can do everything
       can :manage, :all
-    elsif user.has_role? :customer
+    elsif user.role == 'customer'
       can :manage, LineItem
       can [:read, :create, :update], Cart
       
       can :read, [Product, About]
       can :create, Contact
-      can [:read, :create], Order
+      can [:read, :create], Order do |o| o.email = user.email end
 
     # elsif user.has_role? :guest
     else
@@ -24,7 +24,8 @@ class Ability
       # executed)
       can [:read, :create, :update], Cart
       # an editor can only view the annual report
-      can :read, [Product, About]
+      # can :read, [Product, About]
+      can :read, Product
       can :create, Contact
       can [:read, :create], Order
     end

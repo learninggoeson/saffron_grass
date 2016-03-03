@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   ROLES = %w[admin customer].freeze
 
   def is_customer?
-    self.role?(:customer)
+    self.role == 'customer'
   end
 
-  def is_admin?(admin = true)
-    self.role?(:admin)
+  def is_admin?
+    self.role == 'admin'
   end
 
   private

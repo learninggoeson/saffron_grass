@@ -83,20 +83,3 @@ border-top: 1px solid #595;
     .product-info { .title { height: 4em; } }
   }
 }
-.button-inc-dec {
-  margin: 0 0 0 5px;
-  text-indent: -9999px;
-  cursor: pointer;
-  width: 29px;
-  height: 29px;
-  float: left;
-  text-align: center;
-  background: url(../images/buttons.png) no-repeat;
-}
-.dec {
-  background-position: 0 -29px;
-}
-
-.buttons {
-  padding: 20px 0 0 140px;
-}

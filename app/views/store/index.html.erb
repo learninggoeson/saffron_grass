@@ -15,7 +15,7 @@
               <h6><%= product.name %> </h6>
               <%=sanitize product.description %>
             </div>
-            <p class="left price label product-label radius"><%= number_to_currency(product.price) %></p>
+            <p class="left price label product-label radius"><%= number_to_currency(product.price, :unit => "₹") %></p>
             <%= button_to 'Add to Cart' , line_items_path(:product_id => product) %>
           </div>
         </div>

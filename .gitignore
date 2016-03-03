@@ -6,4 +6,7 @@
 tmp/
 public/assets/
 log/*
+log/development.log
+public/cache/*
+db/schema.rb
 tmp/**/*
