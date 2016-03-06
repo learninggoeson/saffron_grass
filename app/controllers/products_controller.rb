@@ -16,10 +16,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     category = @product.sku.gsub(/[^a-z ]/i, '')
-    puts "SHRUTI #{category}"
     
     @similar_products = Product.find(:all, :conditions=>'id != ' + params[:id] + ' AND sku like "%' + category.to_s + '%"', :limit => 6)
-    puts "#{@similar_products.inspect}"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
@@ -29,11 +27,18 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
-    @product = Product.new
+    if can? :create, Product
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @product }
+      @product = Product.new
+
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @product }
+      end
+    else
+      flash[:notice] = 'Access Denied. Redirected to Home Page...'
+      redirect_to root_url
+
     end
   end
 
@@ -45,17 +50,18 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:product])
+      @product = Product.new(params[:product])
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render json: @product, status: :created, location: @product }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @product.save
+          format.html { redirect_to @product, notice: 'Product was successfully created.' }
+          format.json { render json: @product, status: :created, location: @product }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @product.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    
   end
 
   # PUT /products/1

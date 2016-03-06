@@ -12,9 +12,10 @@ class Ability
       can :manage, LineItem
       can [:read, :create, :update], Cart
       
-      can :read, [Product, About]
+      # can :read, [Product, About]
+      can :read, Product
       can :create, Contact
-      can [:read, :create], Order do |o| o.email = user.email end
+      can [:read, :create, :update], Order do |o| o.email = user.email end
 
     # elsif user.has_role? :guest
     else

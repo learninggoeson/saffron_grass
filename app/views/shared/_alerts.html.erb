@@ -1,15 +1,17 @@
 <%if notice.present? || alert.present? %>
-  <div class="row notice">
+  <div id="flash" class="row notice">
     <%is_alert = alert.present? ? "alert" : ""%>
-      <div data-alert class="alert-box <%=is_alert%>">
-        <%=notice || alert%>
-        <a href="javascript:closeNotice();" class="close">&times;</a>
-      </div>
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= notice || alert %>
   </div>
-  <script type="text/javascript">
-  	function closeNotice() {
-	    document.getElementByClassName("notice").setAttribute("style","display:none;");
-	}
-  </script>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    setTimeout(function(){
+      $('#flash').remove();
+    }, 3000);
+   })
+</script>
 <%end%>
+
+
