@@ -5,10 +5,10 @@
  *= require_self
  *= require foundation_and_overrides
 
- *= require_tree . 
+ *= require_tree .
 */
 .banner {
-	background: none repeat scroll 0 0 #eba737;
+	background: none repeat scroll 0 0 #FFFFFF;
     color: #ffffff;
     font-size: 21px;
     font-weight: 300;
@@ -17,12 +17,12 @@
     box-sizing: border-box;
 }
 html body, html, body {
-    font-family: "Lato",san-serif;
+    font-family: "Ubuntu",san-serif;
     font-weight: 300;
 }
 body {
 	 color: #666666;
-    font-family: Lato,sans-serif;
+    font-family: Ubuntu,sans-serif;
     font-size: 15px;
     line-height: 1.42857;
 }
@@ -41,10 +41,9 @@ body {
     margin-top: 20px;
 }
 .footer {
-	background: none repeat scroll 0 0 #d9d9d9;
-    color: #737373;
-    margin-top: 63px;
-    padding: 10.5px 0 15.75px;
+	background: none repeat scroll 0 0 #138808;
+    color: #EFEFEF;
+    padding: 10.5px 15.75px;
 }
 
 .footer-extra {
@@ -83,6 +82,7 @@ border-top: 1px solid #595;
     .product-info { .title { height: 4em; } }
   }
 }
+<<<<<<< Updated upstream
 .button-inc-dec {
   margin: 0 0 0 5px;
   text-indent: -9999px;
@@ -100,3 +100,5 @@ border-top: 1px solid #595;
 .buttons {
   padding: 20px 0 0 140px;
 }
+=======
+>>>>>>> Stashed changes

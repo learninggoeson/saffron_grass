@@ -1,7 +1,7 @@
 <div id="product_list" >
 <h1>Listing products</h1>
 
-<table>
+<table style="width: 100%">
   <tr>
     <th>Name</th>
     <th>Price</th>
@@ -12,14 +12,11 @@
     <th>Size</th>
     <th>Inventory</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @products.each do |product| %>
-  <tr class=" <%= cycle('list_line_odd' , 'list_line_even' ) %>" 
->
-    <td><%= product.name %></td>
+  <tr class=" <%= cycle('list_line_odd' , 'list_line_even' ) %>">
+    <td><span style="text-align: center"><%= product.name %></span></td>
     <td><%= number_to_currency(product.price) %></td>
     <td><%= number_to_currency(product.sale_price) %></td>
     <td><%= product.sku %></td>
