@@ -1,11 +1,11 @@
-<h1>Listing contacts</h1>
+<h4 class="column">Listing Contacts</h4>
 
-<table>
+<table style="width: 100%">
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Message</th>
+    <th class="productInfo">Name</th>
+    <th class="productInfo">Email</th>
+    <th class="productInfo">Phone</th>
+    <th class="productInfo">Message</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,17 +13,17 @@
 
 <% @contacts.each do |contact| %>
   <tr>
-    <td><%= contact.name %></td>
-    <td><%= contact.email %></td>
-    <td><%= contact.phone %></td>
-    <td><%= contact.message %></td>
-    <td><%= link_to 'Show', contact %></td>
-    <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-    <td><%= link_to 'Destroy', contact, confirm: 'Are you sure?', method: :delete %></td>
+    <td class="productInfo"><%= contact.name %></td>
+    <td class="productInfo"><%= contact.email %></td>
+    <td class="productInfo"><%= contact.phone %></td>
+    <td class="productInfo"><%= contact.message %></td>
+    <td class="productInfo"><%= link_to 'Show', contact %></td>
+    <td class="productInfo"><%= link_to 'Edit', edit_contact_path(contact) %></td>
+    <td class="productInfo"><%= link_to 'Destroy', contact, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to 'New Contact', new_contact_path, class: "button" %>

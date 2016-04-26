@@ -1,36 +1,36 @@
 <div id="product_list" >
-<h1>Listing products</h1>
+<h4 class="column">Listing Products</h4>
 
 <table style="width: 100%">
   <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Sale price</th>
-    <th>Sku</th>
-    <th>Description</th>
-    <th>Color</th>
-    <th>Size</th>
-    <th>Inventory</th>
+    <th class="productInfo">Name</th>
+    <th class="productInfo">Price</th>
+    <th class="productInfo">Sale Price</th>
+    <th class="productInfo">Sku</th>
+    <th class="productInfo">Description</th>
+    <th class="productInfo">Color</th>
+    <th class="productInfo">Size</th>
+    <th class="productInfo">Inventory</th>
     <th></th>
   </tr>
 
 <% @products.each do |product| %>
   <tr class=" <%= cycle('list_line_odd' , 'list_line_even' ) %>">
-    <td><span style="text-align: center"><%= product.name %></span></td>
-    <td><%= number_to_currency(product.price) %></td>
-    <td><%= number_to_currency(product.sale_price) %></td>
-    <td><%= product.sku %></td>
-    <td class="list_description" >
+    <td class="productInfo"><span style="text-align: center"><%= product.name %></span></td>
+    <td class="productInfo"><%= number_to_currency(product.price) %></td>
+    <td class="productInfo"><%= number_to_currency(product.sale_price) %></td>
+    <td class="productInfo"><%= product.sku %></td>
+    <td  class="productInfo" >
         <dl>
             <dd><%= truncate(strip_tags(product.description),
             :length => 80) %></dd>
         </dl>
     </td>
 
-    <td><%= product.color %></td>
-    <td><%= product.size %></td>
-    <td><%= product.inventory %></td>
-    <td class="list_actions" >
+    <td class="productInfo"><%= product.color %></td>
+    <td class="productInfo"><%= product.size %></td>
+    <td class="productInfo"><%= product.inventory %></td>
+    <td class="productInfo" >
         <%= link_to 'Show' , product %><br/>
         <%= link_to 'Edit' , edit_product_path(product) %><br/>
         <%= link_to 'Destroy' , product,
@@ -45,4 +45,4 @@
 
 <br />
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, class: "button" %>
