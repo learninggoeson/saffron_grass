@@ -10,9 +10,10 @@
 			<section class="top-bar-section">
 				<div class="top-bar-right">
 					<ul class="menu styleForA">
-						<!-- <li class="menu-text">Marketing Site</li> -->
 						<li><%= link_to "HOME", "/" %></li>
-						<li><%= link_to "SHOP", products_path %></li>
+						<% if current_user && current_user.role == "admin" %>
+							<li><%= link_to "SHOP", products_path %></li>
+						<%end %>
 						<li><%= link_to "OUR STORY", about_path %></li>
 						<li><%= link_to "CONTACT US", new_contact_path %></li>
 						<% if user_signed_in? %>
