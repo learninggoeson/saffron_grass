@@ -146,7 +146,7 @@ My Review
 <% @similar_products.each do |product| %>
   <div class="column">
   <%= image_tag 'tshirt_' + product.id.to_s + '.jpg', :class => "thumbnail"%>
-  <h5><%= product.name %> <small><%= number_to_currency(product.price) %></small></h5>
+  <h5><%= product.name %> <small><%= number_to_currency(product.price, unit: "₹ ") %></small></h5>
   <p><%=sanitize product.description %></p>
   <a href="#" class="button hollow tiny expanded">Buy Now</a>
   </div>

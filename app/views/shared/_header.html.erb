@@ -42,8 +42,13 @@
 
 <div class="row">
   <nav class="top-bar column" data-topbar>
-      <h4>
+  	  <div><h4>
       	<%= link_to @page_title || "Singing For The Unsung", root_path %>
+      	<% if !current_user.blank? %>
+      		<%= link_to image_tag("cart.png", :class => 'cart'), cart_url(@cart) %>
+      	<%end%>
       </h4>
+      
+      </div>
   </nav>
 </div>

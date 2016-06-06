@@ -17,8 +17,8 @@
 <% @products.each do |product| %>
   <tr class=" <%= cycle('list_line_odd' , 'list_line_even' ) %>">
     <td class="productInfo"><span style="text-align: center"><%= product.name %></span></td>
-    <td class="productInfo"><%= number_to_currency(product.price) %></td>
-    <td class="productInfo"><%= number_to_currency(product.sale_price) %></td>
+    <td class="productInfo"><%= number_to_currency(product.price, unit: "₹ ") %></td>
+    <td class="productInfo"><%= number_to_currency(product.sale_price, unit: "₹ ") %></td>
     <td class="productInfo"><%= product.sku %></td>
     <td  class="productInfo" >
         <dl>

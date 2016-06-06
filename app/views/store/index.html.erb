@@ -11,12 +11,12 @@
 
           <% end %>
           <div class="product-info ell glassy-bg padmy padlx">
-            <div class="title">
-              <h6><%= product.name %> </h6>
-              <p class="sanitizeDesc"><%=sanitize product.description %></p>
-            </div>
-            <p class="priceTag"><%= number_to_currency(product.price) %></p>
-            <%= button_to 'Add to Cart' , line_items_path(:product_id => product), class: "button" %>
+            <span>
+              <h6 class="title"><%= product.name %> </h6>
+              <!-- <p class="sanitizeDesc"><%#=sanitize product.description %></p> -->
+            
+            <p class="priceTag"><%= number_to_currency(product.price, unit: "₹ ") %></p></span>
+            <span><%= button_to 'Add to Cart' , line_items_path(:product_id => product), class: "button" %></span>
           </div>
         </div>
       </li>
