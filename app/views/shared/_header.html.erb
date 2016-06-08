@@ -11,9 +11,10 @@
 				<div class="top-bar-right">
 					<ul class="menu styleForA">
 						<li><%= link_to "HOME", "/" %></li>
-						<% if current_user && current_user.role == "admin" %>
+						<%# if current_user && current_user.role == "admin" %>
+						<%# if can? :create, @product %>
 							<li><%= link_to "SHOP", products_path %></li>
-						<%end %>
+						<%#end %>
 						<li><%= link_to "OUR STORY", about_path %></li>
 						<li><%= link_to "CONTACT US", new_contact_path %></li>
 						<% if user_signed_in? %>
@@ -44,7 +45,7 @@
   <nav class="top-bar column" data-topbar>
   	  <div><h4>
       	<%= link_to @page_title || "Singing For The Unsung", root_path %>
-      	<% if !current_user.blank? %>
+      	<% if !current_user.blank? && !@cart.blank? %>
       		<%= link_to image_tag("cart.png", :class => 'cart'), cart_url(@cart) %>
       	<%end%>
       </h4>

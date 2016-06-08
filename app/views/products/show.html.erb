@@ -100,11 +100,11 @@
 <div class="column row">
 <hr>
 <ul class="tabs" data-tabs id="example-tabs">
-<li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Reviews</a></li>
-<li class="tabs-title"><a href="#panel2">Similar Products</a></li>
+<!-- <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Reviews</a></li> -->
+<li class="tabs-title is-active"><a href="#panel2">Similar Products</a></li>
 </ul>
 <div class="tabs-content" data-tabs-content="example-tabs" >
-<div class="tabs-panel is-active" id="panel1" >
+<!-- <div class="tabs-panel is-active" id="panel1" >
 <h4>Reviews</h4>
 <div class="media-object stack-for-small">
 <div class="media-object-section">
@@ -141,13 +141,13 @@ My Review
 </label>
 <button class="button">Submit Review</button>
 </div>
-<div class="tabs-panel" id="panel2">
+ --><div class="tabs-panel is-active" id="panel2">
 <div class="row medium-up-3 large-up-5">
 <% @similar_products.each do |product| %>
   <div class="column">
   <%= image_tag 'tshirt_' + product.id.to_s + '.jpg', :class => "thumbnail"%>
   <h5><%= product.name %> <small><%= number_to_currency(product.price, unit: "₹ ") %></small></h5>
-  <p><%=sanitize product.description %></p>
+  <!-- <p><%#=sanitize product.description %></p> -->
   <a href="#" class="button hollow tiny expanded">Buy Now</a>
   </div>
 <%end%>
